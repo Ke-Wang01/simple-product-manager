@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Product Manager</h1>
+
+<form method="POST" action="/add">
+    <input name="name" placeholder="name">
+    <input name="category" placeholder="category">
+    <input name="price" placeholder="price">
+    <button>Add</button>
+</form>
+
+<hr>
+
+<ul>
+{% for p in products %}
+    <li>
+        {{p.name}} - {{p.category}} - {{p.price}}
+        <form method="POST" action="/delete/{{p.id}}" style="display:inline;">
+            <button>Delete</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
